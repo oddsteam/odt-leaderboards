@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'run/style.css' %}">
+</head>
+<body>
+    <div class="leaderboard">
+        <div class="header">
+            <h2>Leader Board</h2>
+        </div>
+
+        <div class="top-three">
+            <!-- TODO: dynamic content leader -->
+            <div class="player">
+                <div class="rank">2</div>
+                <img src="https://media.istockphoto.com/id/862317986/photo/dynamic-running-uphill-on-trail-male-athlete-runner-side-view.jpg?s=612x612&w=0&k=20&c=rlDBbq42wkdZ8md-B5lWw_0B1ak8vREr2IWHzY9l1F4=" alt="John"/>
+                <div class="name">John</div>
+                <div class="score">4235</div>
+            </div>
+            <div class="player first">
+                <div class="rank">1</div>
+                <img src="https://media.istockphoto.com/id/862317986/photo/dynamic-running-uphill-on-trail-male-athlete-runner-side-view.jpg?s=612x612&w=0&k=20&c=rlDBbq42wkdZ8md-B5lWw_0B1ak8vREr2IWHzY9l1F4=" alt="John"/>
+                <div class="name">John</div>
+                <div class="score">4235</div>
+            </div>
+            <div class="player">
+                <div class="rank">3</div>
+                <img src="https://media.istockphoto.com/id/862317986/photo/dynamic-running-uphill-on-trail-male-athlete-runner-side-view.jpg?s=612x612&w=0&k=20&c=rlDBbq42wkdZ8md-B5lWw_0B1ak8vREr2IWHzY9l1F4=" alt="Merry"/>
+                <div class="name">Merry</div>
+                <div class="score">3967</div>
+            </div>
+        </div>
+
+        <div class="bottom-list">
+            {% for other in others %}
+            <div class="entry">
+            <div class="left">
+                <div class="rank">1</div>
+                <img src="{{ other.image }}" alt="{{ other.user }}" />
+                <span>{{ other.user }}</span>
+            </div>
+            <div class="score {% if other.trend == 'up' %}up{% else %}down{% endif %}">
+                {{ other.distance }} {% if other.trend == 'up' %}▲{% else %}▼{% endif %}
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
