@@ -1,2 +1,3 @@
-# odt-leaderboards
+# ODT Leaderboards
+
 Leaderboards for Everything
